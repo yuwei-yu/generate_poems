@@ -81,20 +81,14 @@ def gen_poem(begin_word):
               print("很抱歉，我们数据集中不存在你输入的字符，请换一个字！！！")
               exit()
 
+        # 诗歌格式化
+        poem_sentences = poem_.split('。')
+        output = ''
+        for s in poem_sentences:
+            if s != '' and len(s) > 10:
+                output+= s+'。\n'
+        return output
 
-        return poem_
-
-def pretty_print_poem(poem_):
-    """
-    格式化打印诗歌。
-
-    参数:
-    poem_: 生成的诗歌，以字符串形式输入。
-    """
-    poem_sentences = poem_.split('。')
-    for s in poem_sentences:
-        if s != '' and len(s) > 10:
-            print(s + '。')
 
 if __name__ == '__main__':
     # 用户输入第一个字
@@ -102,5 +96,5 @@ if __name__ == '__main__':
     print('AI作诗 generating poem...')
     # 生成诗歌
     poem = gen_poem(begin_char)
-    # 打印诗歌
-    pretty_print_poem(poem_=poem)
+    print(poem)
+
